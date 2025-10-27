@@ -4,55 +4,622 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jun Ma — Academic Homepage</title>
-  <meta name="description" content="Jun Ma — PhD candidate. Research in AI for science, Topology optimization, PDEs" />
+  <meta name="description" content="Jun Ma — PhD Candidate. Research in AI for Science, Topology Optimization, PDEs" />
   <meta property="og:title" content="Jun Ma — Academic Homepage" />
-  <meta property="og:description" content="Research in AI for science, Topology optimization, PDEs" />
+  <meta property="og:description" content="Research in AI for Science, Topology Optimization, PDEs" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/assets/cover.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b0c10; --card:#121318; --text:#e8eaed; --muted:#9aa0a6; --accent:#5eead4; --link:#8ab4f8;
-      --max:1000px; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
+      /* Luxurious black and gold theme */
+      --bg-start:#0a0a0a; 
+      --bg-mid:#1a1a1a; 
+      --bg-end:#0f0f0f;
+      --card:#1c1c1c; 
+      --card-hover:#252525;
+      --text:#f5f5f5; 
+      --text-secondary:#d4d4d4;
+      --muted:#9ca3af; 
+      --accent:#d4af37; 
+      --accent-dark:#b8941f;
+      --accent-light:#f4d03f;
+      --link:#e6c24d;
+      --border:#3a3a3a;
+      --shadow:0 8px 32px rgba(0, 0, 0, 0.6);
+      --shadow-hover:0 12px 48px rgba(212, 175, 55, 0.3);
+      --shadow-gold:0 0 20px rgba(212, 175, 55, 0.4);
+      --max:1100px; 
+      --radius:20px;
+      --transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b0c10,#0e1016 55%,#0b0c10);color:var(--text);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
-    a{color:var(--link);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:var(--max);margin:0 auto;padding:28px}
-    header{display:flex;gap:22px;align-items:center;margin:8px 0 26px}
-    .avatar{width:86px;height:86px;border-radius:50%;object-fit:cover;border:2px solid rgba(94,234,212,.35)}
-    h1{font-size:34px;margin:0 0 6px;letter-spacing:.3px}
-    .tag{display:inline-flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:14px}
-    nav{margin:14px 0 0}
-    nav a{display:inline-block;margin-right:16px;padding:8px 12px;border-radius:999px;background:#181a20;border:1px solid #2a2e37}
-    .grid{display:grid;grid-template-columns:2fr 1fr;gap:22px}
-    .card{background:var(--card);border:1px solid #23262f;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-    .card h2{margin:0 0 12px;font-size:20px}
-    .list{margin:0;padding:0;list-style:none}
-    .list li{padding:12px 0;border-bottom:1px dashed #2a2e37}
-    .list li:last-child{border-bottom:none}
-    .label{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:#1b1f2a;border:1px solid #2c3140;color:#9fb3c8;margin-left:8px}
-    .pill{display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border:1px solid #2b2f3a;border-radius:999px;background:#171a22;font-size:12px;color:#c6d0e0}
-    .row{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:1px solid #2a2e37;background:#171a22;color:#e8eaed}
-    .btn:hover{background:#1b1f2a}
-    footer{margin:40px 0 0;color:var(--muted);font-size:13px}
-    code{background:#1a1d27;border:1px solid #2a2f3a;padding:2px 6px;border-radius:6px}
-    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+    
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+    
+    html{
+      scroll-behavior:smooth;
+    }
+    
+    body{
+      margin:0;
+      padding:0;
+      /* Luxurious black gradient background */
+      background:linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
+      background-attachment:fixed;
+      color:var(--text);
+      font-family:'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height:1.6;
+      position:relative;
+      overflow-x:hidden;
+    }
+    
+    /* Dynamic background decoration with gold sparkles */
+    body::before{
+      content:'';
+      position:fixed;
+      top:-50%;
+      right:-50%;
+      width:100%;
+      height:100%;
+      background:radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+      animation:float 20s ease-in-out infinite;
+      pointer-events:none;
+      z-index:0;
+    }
+    
+    body::after{
+      content:'';
+      position:fixed;
+      bottom:-50%;
+      left:-50%;
+      width:100%;
+      height:100%;
+      background:radial-gradient(circle, rgba(244, 208, 63, 0.1) 0%, transparent 70%);
+      animation:float 25s ease-in-out infinite reverse;
+      pointer-events:none;
+      z-index:0;
+    }
+    
+    @keyframes float{
+      0%, 100%{
+        transform:translate(0, 0) rotate(0deg);
+      }
+      33%{
+        transform:translate(30px, -30px) rotate(120deg);
+      }
+      66%{
+        transform:translate(-20px, 20px) rotate(240deg);
+      }
+    }
+    
+    a{
+      color:var(--link);
+      text-decoration:none;
+      transition:var(--transition);
+    }
+    
+    a:hover{
+      color:var(--accent-dark);
+      text-decoration:none;
+    }
+    
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:40px 28px;
+      position:relative;
+      z-index:1;
+    }
+    
+    /* Header styles */
+    header{
+      display:flex;
+      gap:28px;
+      align-items:center;
+      margin:0 0 40px;
+      padding:32px;
+      background:linear-gradient(135deg, rgba(28, 28, 28, 0.98), rgba(35, 35, 35, 0.98));
+      backdrop-filter:blur(10px);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow), 0 0 0 1px rgba(212, 175, 55, 0.3);
+      border:2px solid rgba(212, 175, 55, 0.5);
+      transition:var(--transition);
+      animation:slideDown 0.6s ease-out;
+    }
+    
+    @keyframes slideDown{
+      from{
+        opacity:0;
+        transform:translateY(-30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+    
+    header:hover{
+      box-shadow:var(--shadow-hover), var(--shadow-gold);
+      transform:translateY(-4px);
+      border-color:var(--accent);
+    }
+    
+    .avatar{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      object-fit:cover;
+      border:4px solid var(--accent);
+      box-shadow:0 8px 24px rgba(212, 175, 55, 0.5), 0 0 40px rgba(212, 175, 55, 0.3);
+      transition:var(--transition);
+      flex-shrink:0;
+    }
+    
+    .avatar:hover{
+      transform:scale(1.08) rotate(5deg);
+      box-shadow:0 12px 32px rgba(212, 175, 55, 0.7), 0 0 60px rgba(212, 175, 55, 0.5);
+      border-color:var(--accent-light);
+    }
+    
+    h1{
+      font-size:36px;
+      margin:0 0 8px;
+      letter-spacing:0.5px;
+      font-weight:700;
+      color:var(--text);
+      display:flex;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    
+    .tag{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:15px;
+      font-weight:500;
+      margin:8px 0;
+    }
+    
+    nav{
+      margin:16px 0 0;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    
+    nav a{
+      display:inline-flex;
+      align-items:center;
+      padding:10px 18px;
+      border-radius:999px;
+      background:linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+      color:#000000;
+      font-weight:600;
+      font-size:14px;
+      border:1px solid var(--accent-light);
+      box-shadow:0 4px 12px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      transition:var(--transition);
+      text-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    
+    nav a:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 20px rgba(212, 175, 55, 0.6), 0 0 30px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      background:linear-gradient(135deg, var(--accent-light) 0%, #ffd700 100%);
+    }
+    
+    /* Grid layout */
+    .grid{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:24px;
+      animation:fadeIn 0.8s ease-out 0.2s both;
+    }
+    
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+    
+    /* Full width section */
+    .full-width{
+      grid-column:1 / -1;
+    }
+    
+    /* Card styles */
+    .card{
+      background:linear-gradient(135deg, rgba(28, 28, 28, 0.98), rgba(35, 35, 35, 0.95));
+      backdrop-filter:blur(10px);
+      border:2px solid rgba(212, 175, 55, 0.3);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow), 0 0 0 1px rgba(212, 175, 55, 0.1);
+      padding:28px;
+      transition:var(--transition);
+      position:relative;
+      overflow:hidden;
+    }
+    
+    .card::before{
+      content:'';
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:4px;
+      background:linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 50%, var(--accent) 100%);
+      transform:scaleX(0);
+      transition:var(--transition);
+      box-shadow:0 0 10px rgba(212, 175, 55, 0.6);
+    }
+    
+    .card:hover{
+      box-shadow:var(--shadow-hover), var(--shadow-gold);
+      transform:translateY(-6px);
+      background:linear-gradient(135deg, rgba(35, 35, 35, 0.98), rgba(40, 40, 40, 0.95));
+      border-color:var(--accent);
+    }
+    
+    .card:hover::before{
+      transform:scaleX(1);
+    }
+    
+    .card h2{
+      margin:0 0 18px;
+      font-size:24px;
+      font-weight:700;
+      color:var(--accent-light);
+      display:flex;
+      align-items:center;
+      gap:10px;
+      text-shadow:0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    
+    .card h2::before{
+      content:'';
+      width:4px;
+      height:24px;
+      background:linear-gradient(180deg, var(--accent) 0%, var(--accent-light) 100%);
+      border-radius:2px;
+      box-shadow:0 0 10px rgba(212, 175, 55, 0.6);
+    }
+    
+    .card p{
+      color:var(--text-secondary);
+      line-height:1.8;
+      margin:0 0 12px;
+    }
+    
+    /* List styles */
+    .list{
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    
+    .list li{
+      padding:16px 0;
+      border-bottom:1px solid var(--border);
+      transition:var(--transition);
+      color:var(--text-secondary);
+    }
+    
+    .list li:last-child{
+      border-bottom:none;
+    }
+    
+    .list li:hover{
+      padding-left:12px;
+      color:var(--text);
+    }
+    
+    .list li strong{
+      color:var(--text);
+      font-weight:600;
+    }
+    
+    /* Label styles */
+    .label{
+      display:inline-flex;
+      align-items:center;
+      font-size:13px;
+      padding:4px 12px;
+      border-radius:999px;
+      background:linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+      color:#000000;
+      font-weight:700;
+      box-shadow:0 2px 8px rgba(212, 175, 55, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      text-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Pill styles */
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:10px 16px;
+      border:2px solid var(--accent);
+      border-radius:999px;
+      background:rgba(212, 175, 55, 0.1);
+      font-size:13px;
+      font-weight:600;
+      color:var(--accent-light);
+      transition:var(--transition);
+      box-shadow:0 0 10px rgba(212, 175, 55, 0.2);
+    }
+    
+    .pill:hover{
+      background:linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+      color:#000000;
+      transform:translateY(-2px);
+      box-shadow:0 4px 12px rgba(212, 175, 55, 0.5), 0 0 20px rgba(212, 175, 55, 0.3);
+      text-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    
+    .row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    
+    /* Button styles */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:12px 24px;
+      border-radius:12px;
+      border:2px solid var(--accent);
+      background:linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+      color:#000000;
+      font-weight:700;
+      font-size:14px;
+      transition:var(--transition);
+      box-shadow:0 4px 12px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      text-shadow:0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 8px 24px rgba(212, 175, 55, 0.6), 0 0 30px rgba(212, 175, 55, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      background:linear-gradient(135deg, var(--accent-light) 0%, #ffd700 100%);
+    }
+    
+    /* Awards grid */
+    .awards-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+      gap:16px;
+      margin-top:16px;
+    }
+    
+    .award-item{
+      padding:16px;
+      background:rgba(212, 175, 55, 0.05);
+      border:2px solid rgba(212, 175, 55, 0.3);
+      border-radius:12px;
+      transition:var(--transition);
+      display:flex;
+      align-items:start;
+      gap:12px;
+    }
+    
+    .award-item:hover{
+      background:rgba(212, 175, 55, 0.15);
+      border-color:var(--accent);
+      transform:translateY(-2px);
+      box-shadow:0 4px 12px rgba(212, 175, 55, 0.3), 0 0 20px rgba(212, 175, 55, 0.2);
+    }
+    
+    .award-icon{
+      font-size:24px;
+      flex-shrink:0;
+    }
+    
+    .award-content{
+      flex:1;
+    }
+    
+    .award-year{
+      font-size:12px;
+      font-weight:600;
+      color:var(--accent-light);
+      margin-bottom:4px;
+    }
+    
+    .award-title{
+      font-size:14px;
+      font-weight:600;
+      color:var(--text);
+      line-height:1.4;
+    }
+    
+    /* Project item */
+    .project-item{
+      margin-bottom:24px;
+      padding-bottom:24px;
+      border-bottom:1px solid var(--border);
+    }
+    
+    .project-item:last-child{
+      border-bottom:none;
+      margin-bottom:0;
+      padding-bottom:0;
+    }
+    
+    .project-title{
+      font-size:16px;
+      font-weight:600;
+      color:var(--text);
+      margin-bottom:6px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    
+    .project-meta{
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+    
+    .project-desc{
+      font-size:14px;
+      color:var(--text-secondary);
+      line-height:1.6;
+    }
+    
+    /* Photo gallery */
+    .photo-gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+      gap:16px;
+      margin-top:16px;
+    }
+    
+    .photo-item{
+      position:relative;
+      overflow:hidden;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0, 0, 0, 0.5);
+      transition:var(--transition);
+      border:2px solid rgba(212, 175, 55, 0.3);
+    }
+    
+    .photo-item:hover{
+      transform:scale(1.05);
+      box-shadow:0 8px 24px rgba(212, 175, 55, 0.4), 0 0 30px rgba(212, 175, 55, 0.3);
+      border-color:var(--accent);
+    }
+    
+    .photo-item img{
+      width:100%;
+      height:auto;
+      display:block;
+    }
+    
+    .photo-caption{
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      padding:12px;
+      background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+      color:#ffffff;
+      font-size:12px;
+      text-align:center;
+    }
+    
+    /* Footer styles */
+    footer{
+      margin:50px 0 0;
+      padding:28px;
+      text-align:center;
+      color:var(--text-secondary);
+      font-size:14px;
+      background:linear-gradient(135deg, rgba(28, 28, 28, 0.9), rgba(35, 35, 35, 0.9));
+      backdrop-filter:blur(10px);
+      border-radius:var(--radius);
+      border:2px solid rgba(212, 175, 55, 0.3);
+      box-shadow:var(--shadow);
+    }
+    
+    code{
+      background:rgba(212, 175, 55, 0.15);
+      border:1px solid var(--accent);
+      padding:3px 8px;
+      border-radius:6px;
+      font-family:'Courier New', monospace;
+      font-size:13px;
+      color:var(--accent-light);
+    }
+    
+    /* Highlight box */
+    .highlight{
+      background:linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(184, 148, 31, 0.15));
+      border-left:4px solid var(--accent);
+      padding:16px;
+      border-radius:8px;
+      margin:16px 0;
+      box-shadow:0 0 20px rgba(212, 175, 55, 0.2);
+    }
+    
+    .highlight p{
+      margin:0;
+      color:var(--text);
+    }
+    
+    /* Responsive design */
+    @media(max-width:900px){
+      .grid{
+        grid-template-columns:1fr;
+      }
+      header{
+        flex-direction:column;
+        text-align:center;
+      }
+      h1{
+        font-size:28px;
+        justify-content:center;
+      }
+      nav{
+        justify-content:center;
+      }
+      .awards-grid{
+        grid-template-columns:1fr;
+      }
+    }
+    
+    /* Scrollbar beautification */
+    ::-webkit-scrollbar{
+      width:10px;
+    }
+    
+    ::-webkit-scrollbar-track{
+      background:rgba(26, 26, 26, 0.8);
+    }
+    
+    ::-webkit-scrollbar-thumb{
+      background:linear-gradient(180deg, var(--accent) 0%, var(--accent-light) 100%);
+      border-radius:5px;
+      box-shadow:0 0 10px rgba(212, 175, 55, 0.5);
+    }
+    
+    ::-webkit-scrollbar-thumb:hover{
+      background:linear-gradient(180deg, var(--accent-light) 0%, #ffd700 100%);
+      box-shadow:0 0 15px rgba(212, 175, 55, 0.7);
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <img class="avatar" src="/assets/avatar.jpg" alt="Profile" />
+      <img class="avatar" src="/assets/avatar.jpg" alt="Photo of Jun Ma" />
       <div>
         <h1>Jun Ma <span class="label">PhD Candidate</span></h1>
-        <div class="tag">Topology &amp; Shape Optimization • PDEs • AI for Science</div>
+        <div class="tag">Topology & Shape Optimization • PDEs • AI for Science</div>
         <nav>
           <a href="#about">About</a>
           <a href="#research">Research</a>
+          <a href="#projects">Projects</a>
           <a href="#pubs">Publications</a>
+          <a href="#awards">Awards</a>
           <a href="#teaching">Teaching</a>
+          <a href="#photos">Photos</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -60,77 +627,296 @@
 
     <div class="grid">
       <section class="card" id="about">
-        <h2>About</h2>
+        <h2>About Me</h2>
         <p>
-          I am a doctoral researcher at Université de Technologie de Compiègne (UTC, LMAC). My work blends
-          <strong>topology optimization</strong> and <strong>PDE analysis</strong> with <strong>AI‑driven modeling</strong> for
-          thermal energy systems (PCMs, Kapitza interface laws).
+          I am a doctoral researcher at <strong>Université de Technologie de Compiègne (UTC)</strong>, LMAC Laboratory. 
+          My research integrates <strong>topology optimization</strong> and <strong>PDE analysis</strong> with 
+          <strong>AI-driven modeling</strong> for thermal energy systems, including phase change materials (PCM) and 
+          Kapitza interface laws.
         </p>
-        <div class="row" style="margin-top:8px">
-          <a class="btn" href="/cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
-          <a class="btn" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
-          <a class="btn" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        <p>
+          Previously, I obtained my Master's degree in Computational Mathematics from <strong>Northwestern Polytechnical University</strong> 
+          (Double First-Class/985 University), under the supervision of <strong>Academician Weihong Zhang</strong> and 
+          <strong>Prof. Piotr Breitkopf</strong>. I received my Bachelor's degree in Mathematics and Applied Mathematics 
+          from the same institution.
+        </p>
+        <div class="highlight">
+          <p><strong>🏆 Recent Achievement:</strong> Best Paper Award at ACCM-2023 (6th Australasian Congress on Computational Mechanics)</p>
+        </div>
+        <div class="row" style="margin-top:16px">
+          <a class="btn" href="/cv.pdf" target="_blank" rel="noopener">📄 Download CV</a>
+          <a class="btn" href="https://scholar.google.com/" target="_blank" rel="noopener">🎓 Google Scholar</a>
+          <a class="btn" href="https://github.com/" target="_blank" rel="noopener">💻 GitHub</a>
+          <a class="btn" href="https://orcid.org/" target="_blank" rel="noopener">🔗 ORCID</a>
         </div>
       </section>
 
       <aside class="card">
         <h2>Quick Links</h2>
         <ul class="list">
-          <li>Latest preprint: <a href="#">Steady Conduction with Non‑Linear Kapitza Resistance</a></li>
-          <li>Code: <a href="#">FreeFEM topology derivatives</a></li>
-          <li>Talks: <a href="#">AI‑assisted PDE modeling</a></li>
+          <li>Latest Preprint: <a href="#">Steady Conduction with Non-Linear Kapitza Resistance</a></li>
+          <li>Open Source: <a href="#">FreeFEM Topology Derivatives</a></li>
+          <li>Talks: <a href="#">AI-Assisted PDE Modeling</a></li>
+          <li>Award: <a href="#awards">ACCM-2023 Best Paper 🏆</a></li>
         </ul>
       </aside>
 
       <section class="card" id="research">
         <h2>Research Interests</h2>
         <div class="row">
-          <span class="pill">Topology/shape optimization</span>
-          <span class="pill">PDEs &amp; bifurcations</span>
-          <span class="pill">Thermal energy storage (PCM)</span>
-          <span class="pill">PINNs &amp; surrogates</span>
+          <span class="pill">Topology/Shape Optimization</span>
+          <span class="pill">PDEs & Bifurcations</span>
+          <span class="pill">Thermal Energy Storage (PCM)</span>
+          <span class="pill">Physics-Informed Neural Networks</span>
+          <span class="pill">Reduced Order Modeling</span>
+          <span class="pill">Computational Mechanics</span>
         </div>
       </section>
 
-      <section class="card" id="pubs">
+      <section class="card full-width" id="projects">
+        <h2>Research Projects</h2>
+        
+        <div class="project-item">
+          <div class="project-title">
+            <span>🔬</span>
+            Dynamic Multi-Fidelity Reduction Theory and Methods for Large-Scale Structural Dynamics Topology Optimization
+          </div>
+          <div class="project-meta">
+            National Natural Science Foundation of China (NSFC) • Grant No. 12272302 • Jan 2023 - Dec 2026
+          </div>
+          <div class="project-desc">
+            Developing advanced reduced-order modeling techniques coupled with topology optimization for large-scale transient dynamic problems. 
+            Focuses on primal-dual POD methods and adaptive model updating strategies.
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-title">
+            <span>🌐</span>
+            Models, Theory and Methods for Scientific Computing
+          </div>
+          <div class="project-meta">
+            High-end Foreign Expert Introduction Program, Ministry of Science and Technology • Grant No. G2021183022L • Jan 2021 - Dec 2022
+          </div>
+          <div class="project-desc">
+            International collaboration project focusing on advanced computational methods and theoretical foundations for scientific computing applications.
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-title">
+            <span>⚡</span>
+            Large-Scale Stress-Constrained Topology Optimization Based on Reduced-Order Models
+          </div>
+          <div class="project-meta">
+            Natural Science Basic Research Program of Shaanxi Province • Grant No. 2021JM-043 • Jan 2021 - Dec 2022
+          </div>
+          <div class="project-desc">
+            Developing multi-fidelity dynamic reduced-order modeling strategies for stress-constrained topology optimization problems with millions of degrees of freedom.
+          </div>
+        </div>
+
+        <div class="project-item">
+          <div class="project-title">
+            <span>🚀</span>
+            Integrated Design Methods for Functionally Graded Sandwich Structures for Lightweight Thermal Protection
+          </div>
+          <div class="project-meta">
+            National Natural Science Foundation of China (NSFC) • Grant No. 11972166 • Jan 2019 - Dec 2022
+          </div>
+          <div class="project-desc">
+            Research on integrated design methodologies for functionally graded sandwich structures with applications in aerospace thermal protection systems.
+          </div>
+        </div>
+      </section>
+
+      <section class="card full-width" id="pubs">
         <h2>Selected Publications</h2>
         <ul class="list">
           <li>
-            <strong>Ma, J.</strong>, et al. (2025). "Steady Conduction with Non‑Linear Kapitza Contact Resistance: Existence &amp; Bifurcation." <em>preprint</em>.
+            Xiao, M., <strong>Ma, J.</strong>, Gao, X., Breitkopf, P., et al. (2024). 
+            "Primal-dual On-the-fly Reduced-Order Modeling for Large-Scale Transient Dynamic Topology Optimization." 
+            <em>Computer Methods in Applied Mechanics and Engineering</em> (Under Review).
+            <span class="label">Dynamics</span>
+            <br><small style="color:var(--accent);font-weight:600;">🏆 ACCM-2023 Best Paper Award</small>
+            <br><small style="color:var(--muted);margin-top:4px;display:block;">
+              Developed a coupled primal-dual POD reduced-order model for large-scale dynamic topology optimization, 
+              achieving significant computational savings while maintaining accuracy.
+            </small>
+          </li>
+          <li>
+            <strong>Ma, J.</strong>, Xiao, M., et al. (2025). 
+            "Steady Conduction with Non-Linear Kapitza Contact Resistance: Existence & Bifurcation." 
+            <em>Preprint</em>.
             <span class="label">PDE</span>
+            <br><small style="color:var(--muted);margin-top:4px;display:block;">
+              Theoretical analysis of steady-state heat conduction problems with nonlinear Kapitza interface resistance, 
+              including existence and bifurcation analysis.
+            </small>
           </li>
           <li>
-            <strong>Ma, J.</strong>, et al. (2024). "Topology optimization for PCM‑based TES with interface laws." <em>Under review</em>.
+            Xiao, M., <strong>Ma, J.</strong>, Lu, D., et al. (2022). 
+            "Stress-constrained topology optimization using approximate reanalysis with on-the-fly reduced order modeling." 
+            <em>Advanced Modeling and Simulation in Engineering Sciences</em>, 9(1): 1-30.
             <span class="label">Optimization</span>
+            <br><small style="color:var(--muted);margin-top:4px;display:block;">
+              Proposed adaptive multi-fidelity dynamic reduction methods for large-scale stress-constrained structural optimization problems.
+            </small>
           </li>
           <li>
-            Doe, A., <strong>Ma, J.</strong> (2023). "Bayesian Linear Models for Excess Returns." <em>Working paper</em>.
-            <span class="label">Finance</span>
+            Ma, R., <strong>Ma, J.</strong>, Xiao, M. (2022). 
+            "Several Computational Methods for Geodesic Equations on Surfaces." 
+            <em>College Mathematics</em>, 38(4).
+            <span class="label">Differential Geometry</span>
+            <br><small style="color:var(--muted);margin-top:4px;display:block;">
+              Comparative study of four methods for solving geodesic equations on various surfaces, 
+              with applications to surface configuration and finite element analysis.
+            </small>
           </li>
         </ul>
+      </section>
+
+      <section class="card full-width" id="awards">
+        <h2>Honors & Awards</h2>
+        <div class="awards-grid">
+          <div class="award-item">
+            <div class="award-icon">🏆</div>
+            <div class="award-content">
+              <div class="award-year">2023</div>
+              <div class="award-title">Best Paper Award, ACCM-2023 (6th Australasian Congress on Computational Mechanics)</div>
+            </div>
+          </div>
+          
+          <div class="award-item">
+            <div class="award-icon">🎓</div>
+            <div class="award-content">
+              <div class="award-year">2024</div>
+              <div class="award-title">Outstanding Graduate, Northwestern Polytechnical University (Master's)</div>
+            </div>
+          </div>
+          
+          <div class="award-item">
+            <div class="award-icon">💰</div>
+            <div class="award-content">
+              <div class="award-year">2021-2023</div>
+              <div class="award-title">First-Class & Second-Class Graduate Scholarships, NPU</div>
+            </div>
+          </div>
+          
+          <div class="award-item">
+            <div class="award-icon">🎓</div>
+            <div class="award-content">
+              <div class="award-year">2021</div>
+              <div class="award-title">Outstanding Graduate, Northwestern Polytechnical University (Bachelor's)</div>
+            </div>
+          </div>
+          
+          <div class="award-item">
+            <div class="award-icon">🥈</div>
+            <div class="award-content">
+              <div class="award-year">2021</div>
+              <div class="award-title">Second Prize, National Finals of Chinese Mathematics Competitions for College Students</div>
+            </div>
+          </div>
+          
+          <div class="award-item">
+            <div class="award-icon">🥇</div>
+            <div class="award-content">
+              <div class="award-year">2020</div>
+              <div class="award-title">Meritorious Winner (First Prize), Mathematical Contest in Modeling (MCM), USA</div>
+            </div>
+          </div>
+          
+          <div class="award-item">
+            <div class="award-icon">🥇</div>
+            <div class="award-content">
+              <div class="award-year">2019</div>
+              <div class="award-title">First Prize, National Mathematical Modeling Competition (Shaanxi Province)</div>
+            </div>
+          </div>
+          
+          <div class="award-item">
+            <div class="award-icon">🥉</div>
+            <div class="award-content">
+              <div class="award-year">2021</div>
+              <div class="award-title">Third Prize, Huawei Cup Graduate Mathematical Modeling Competition</div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="card" id="teaching">
-        <h2>Teaching</h2>
+        <h2>Teaching Experience</h2>
         <ul class="list">
-          <li>TA — Statistics &amp; Probability (Python labs)</li>
-          <li>Guest sessions — Optimization &amp; PDE numerics</li>
-          <li>Workshops — AI for Law &amp; Compliance (GDPR/AI Act)</li>
+          <li><strong>Teaching Assistant</strong> — Statistics & Probability (Python Labs)</li>
+          <li><strong>Guest Lecturer</strong> — Optimization & PDE Numerical Methods</li>
+          <li><strong>Workshop Instructor</strong> — AI for Law & Compliance (GDPR/AI Act)</li>
         </ul>
       </section>
 
+      <section class="card" id="photos">
+        <h2>Academic Photos</h2>
+        <div class="photo-gallery">
+          <div class="photo-item">
+            <img src="/assets/avatar.jpg" alt="Professional Photo" />
+            <div class="photo-caption">Professional Portrait</div>
+          </div>
+          <div class="photo-item">
+            <img src="/assets/photo-with-professor.jpg" alt="With Prof. Breitkopf" />
+            <div class="photo-caption">With Prof. Piotr Breitkopf</div>
+          </div>
+        </div>
+      </section>
+
       <section class="card" id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:jun.ma@example.com">jun.ma@example.com</a></p>
-        <p>Lab: UTC — LMAC, Compiègne, France</p>
-        <p>ORCID: <a href="https://orcid.org/" target="_blank" rel="noopener">0000-0000-0000-0000</a></p>
+        <h2>Contact Information</h2>
+        <p><strong>Email:</strong> <a href="mailto:majun2512@mail.nwpu.edu.cn">majun2512@mail.nwpu.edu.cn</a></p>
+        <p><strong>Laboratory:</strong> UTC — LMAC, Compiègne, France</p>
+        <p><strong>Phone:</strong> +86 18791196392</p>
+        <p><strong>ORCID:</strong> <a href="https://orcid.org/" target="_blank" rel="noopener">0000-0000-0000-0000</a></p>
+        <p><strong>Address:</strong> Laboratoire de Mathématiques Appliquées de Compiègne, Université de Technologie de Compiègne, France</p>
       </section>
     </div>
 
     <footer>
-      © <span id="y"></span> Jun Ma. Built with GitHub Pages. — <code>index.html</code>
+      © <span id="y"></span> Jun Ma. Powered by GitHub Pages — <code>index.html</code>
+      <br><small style="margin-top:8px;display:block;opacity:0.8;">Last updated: October 2024</small>
     </footer>
   </div>
-  <script>document.getElementById("y").textContent = new Date().getFullYear()</script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    
+    // Smooth scrolling effect
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Scroll animation
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    cards.forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(card);
+    });
+  </script>
 </body>
 </html>
