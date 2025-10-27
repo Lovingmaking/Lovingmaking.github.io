@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jun Ma — Academic Homepage</title>
+  <meta name="description" content="Jun Ma — PhD candidate. Research in topology optimization, PDEs, AI for science, and digital law." />
+  <meta property="og:title" content="Jun Ma — Academic Homepage" />
+  <meta property="og:description" content="Research in topology optimization, PDEs, AI for science, and digital law." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/cover.jpg" />
+  <style>
+    :root{
+      --bg:#0b0c10; --card:#121318; --text:#e8eaed; --muted:#9aa0a6; --accent:#5eead4; --link:#8ab4f8;
+      --max:1000px; --radius:18px; --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b0c10,#0e1016 55%,#0b0c10);color:var(--text);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max);margin:0 auto;padding:28px}
+    header{display:flex;gap:22px;align-items:center;margin:8px 0 26px}
+    .avatar{width:86px;height:86px;border-radius:50%;object-fit:cover;border:2px solid rgba(94,234,212,.35)}
+    h1{font-size:34px;margin:0 0 6px;letter-spacing:.3px}
+    .tag{display:inline-flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+    nav{margin:14px 0 0}
+    nav a{display:inline-block;margin-right:16px;padding:8px 12px;border-radius:999px;background:#181a20;border:1px solid #2a2e37}
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:22px}
+    .card{background:var(--card);border:1px solid #23262f;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
+    .card h2{margin:0 0 12px;font-size:20px}
+    .list{margin:0;padding:0;list-style:none}
+    .list li{padding:12px 0;border-bottom:1px dashed #2a2e37}
+    .list li:last-child{border-bottom:none}
+    .label{display:inline-block;font-size:12px;padding:2px 8px;border-radius:999px;background:#1b1f2a;border:1px solid #2c3140;color:#9fb3c8;margin-left:8px}
+    .pill{display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border:1px solid #2b2f3a;border-radius:999px;background:#171a22;font-size:12px;color:#c6d0e0}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:1px solid #2a2e37;background:#171a22;color:#e8eaed}
+    .btn:hover{background:#1b1f2a}
+    footer{margin:40px 0 0;color:var(--muted);font-size:13px}
+    code{background:#1a1d27;border:1px solid #2a2f3a;padding:2px 6px;border-radius:6px}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img class="avatar" src="/assets/avatar.jpg" alt="Profile" />
+      <div>
+        <h1>Jun Ma <span class="label">PhD Candidate</span></h1>
+        <div class="tag">Topology &amp; Shape Optimization • PDEs • AI for Science • Digital Law</div>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#pubs">Publications</a>
+          <a href="#teaching">Teaching</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card" id="about">
+        <h2>About</h2>
+        <p>
+          I am a doctoral researcher at Université de Technologie de Compiègne (UTC, LMAC). My work blends
+          <strong>topology optimization</strong> and <strong>PDE analysis</strong> with <strong>AI‑driven modeling</strong> for
+          thermal energy systems (PCMs, Kapitza interface laws). I also work on <em>AI &amp; digital law</em> topics (GDPR, AI Act).
+        </p>
+        <div class="row" style="margin-top:8px">
+          <a class="btn" href="/cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
+          <a class="btn" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
+          <a class="btn" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </section>
+
+      <aside class="card">
+        <h2>Quick Links</h2>
+        <ul class="list">
+          <li>Latest preprint: <a href="#">Steady Conduction with Non‑Linear Kapitza Resistance</a></li>
+          <li>Code: <a href="#">FreeFEM topology derivatives</a></li>
+          <li>Talks: <a href="#">AI‑assisted PDE modeling</a></li>
+        </ul>
+      </aside>
+
+      <section class="card" id="research">
+        <h2>Research Interests</h2>
+        <div class="row">
+          <span class="pill">Topology/shape optimization</span>
+          <span class="pill">PDEs &amp; bifurcations</span>
+          <span class="pill">Thermal energy storage (PCM)</span>
+          <span class="pill">PINNs &amp; surrogates</span>
+          <span class="pill">GDPR • AI Act • DSA</span>
+        </div>
+      </section>
+
+      <section class="card" id="pubs">
+        <h2>Selected Publications</h2>
+        <ul class="list">
+          <li>
+            <strong>Ma, J.</strong>, et al. (2025). "Steady Conduction with Non‑Linear Kapitza Contact Resistance: Existence &amp; Bifurcation." <em>preprint</em>.
+            <span class="label">PDE</span>
+          </li>
+          <li>
+            <strong>Ma, J.</strong>, et al. (2024). "Topology optimization for PCM‑based TES with interface laws." <em>Under review</em>.
+            <span class="label">Optimization</span>
+          </li>
+          <li>
+            Doe, A., <strong>Ma, J.</strong> (2023). "Bayesian Linear Models for Excess Returns." <em>Working paper</em>.
+            <span class="label">Finance</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card" id="teaching">
+        <h2>Teaching</h2>
+        <ul class="list">
+          <li>TA — Statistics &amp; Probability (Python labs)</li>
+          <li>Guest sessions — Optimization &amp; PDE numerics</li>
+          <li>Workshops — AI for Law &amp; Compliance (GDPR/AI Act)</li>
+        </ul>
+      </section>
+
+      <section class="card" id="contact">
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:jun.ma@example.com">jun.ma@example.com</a></p>
+        <p>Lab: UTC — LMAC, Compiègne, France</p>
+        <p>ORCID: <a href="https://orcid.org/" target="_blank" rel="noopener">0000-0000-0000-0000</a></p>
+      </section>
+    </div>
+
+    <footer>
+      © <span id="y"></span> Jun Ma. Built with GitHub Pages. — <code>index.html</code>
+    </footer>
+  </div>
+  <script>document.getElementById("y").textContent = new Date().getFullYear()</script>
+</body>
+</html>
