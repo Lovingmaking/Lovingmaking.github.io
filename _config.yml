@@ -1,1 +1,42 @@
+# Site settings
+title: Jun Ma - Academic Homepage
+author: Jun Ma
+email: majun2512@mail.nwpu.edu.cn
+description: >-
+  PhD Candidate in Computational Mathematics at UTC.
+  Research in Topology Optimization, PDE Analysis, and AI for Thermal Energy Systems.
 
+baseurl: "" # 如果你的仓库名不是 username.github.io，改为 "/repository-name"
+url: "" # 你的网站URL，如 "https://username.github.io"
+
+# Build settings
+markdown: kramdown
+permalink: /thoughts/:year/:month/:day/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /thoughts/:year/:month/:day/:title/
+
+# Exclude files
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Jun Ma"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

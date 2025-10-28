@@ -1,1 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Academic Thoughts - Jun Ma</title>
+  <meta name="description" content="Academic thoughts and reflections on research topics" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Nature-inspired Academic Color Palette */
+    :root {
+      --primary: #0C7C59;
+      --secondary: #1A5490;
+      --accent: #D14343;
+      --text-dark: #1a1a1a;
+      --text-gray: #4a4a4a;
+      --text-light: #6a6a6a;
+      --bg-white: #ffffff;
+      --bg-gray: #f8f9fa;
+      --border: #e0e0e0;
+      --shadow: rgba(0, 0, 0, 0.08);
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg-white);
+      color: var(--text-dark);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    h1, h2 {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--text-dark);
+    }
+
+    h1 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary); }
+    h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-gray);
+    }
+
+    a {
+      color: var(--secondary);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    a:hover {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    /* Header */
+    header {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1rem 20px;
+    }
+
+    .logo {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: none;
+      position: relative;
+      padding: 0.3rem 0;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after, nav a.active::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      color: var(--primary);
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Page Header */
+    .page-header {
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .page-subtitle {
+      color: var(--text-light);
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Post List */
+    .post-list {
+      list-style: none;
+    }
+
+    .post-item {
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .post-item:hover {
+      box-shadow: 0 4px 16px var(--shadow);
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .post-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-title a {
+      color: var(--text-dark);
+      border: none;
+    }
+
+    .post-title a:hover {
+      color: var(--primary);
+    }
+
+    .post-meta {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .post-excerpt {
+      color: var(--text-gray);
+      line-height: 1.6;
+    }
+
+    .post-categories {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .category-tag {
+      padding: 0.3rem 0.8rem;
+      background: var(--bg-gray);
+      color: var(--primary);
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--bg-gray);
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    .empty-state h3 {
+      color: var(--text-gray);
+      margin-bottom: 1rem;
+    }
+
+    .empty-state p {
+      color: var(--text-light);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-gray);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      margin-top: 4rem;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      
+      nav {
+        display: none;
+      }
+
+      .post-item {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">Jun Ma</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/thoughts.html" class="active">Thoughts</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="page-header">
+      <h1>Academic Thoughts</h1>
+      <p class="page-subtitle">Reflections on research, mathematics, and computational science</p>
+    </div>
+
+    <ul class="post-list">
+      {% for post in site.posts %}
+      <li class="post-item">
+        <h2 class="post-title">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </h2>
+        <div class="post-meta">
+          <span>📅 {{ post.date | date: "%B %d, %Y" }}</span>
+        </div>
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>
+        {% if post.categories %}
+        <div class="post-categories">
+          {% for category in post.categories %}
+          <span class="category-tag">{{ category }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </li>
+      {% endfor %}
+      
+      {% if site.posts.size == 0 %}
+      <div class="empty-state">
+        <h3>📝 No posts yet</h3>
+        <p>Academic thoughts and reflections will appear here soon.</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Create your first post in the <code>_posts</code> folder!</p>
+      </div>
+      {% endif %}
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Jun Ma. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
