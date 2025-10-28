@@ -1,1 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }} - Jun Ma</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Nature-inspired Academic Color Palette */
+    :root {
+      --primary: #0C7C59;
+      --secondary: #1A5490;
+      --accent: #D14343;
+      --text-dark: #1a1a1a;
+      --text-gray: #4a4a4a;
+      --text-light: #6a6a6a;
+      --bg-white: #ffffff;
+      --bg-gray: #f8f9fa;
+      --border: #e0e0e0;
+      --shadow: rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg-white);
+      color: var(--text-dark);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--text-dark);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 { font-size: 2.5rem; margin-top: 0; }
+    h2 { font-size: 1.8rem; color: var(--primary); }
+    h3 { font-size: 1.4rem; }
+    h4 { font-size: 1.2rem; }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-gray);
+    }
+
+    a {
+      color: var(--secondary);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    a:hover {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    /* Header */
+    header {
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1rem 20px;
+    }
+
+    .logo {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text-gray);
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: none;
+      position: relative;
+      padding: 0.3rem 0;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Container */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Post Meta */
+    .post-meta {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin: 1rem 0 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Post Content */
+    .post-content {
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .post-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 2rem 0;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .post-content code {
+      background: var(--bg-gray);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9em;
+      color: var(--accent);
+    }
+
+    .post-content pre {
+      background: var(--bg-gray);
+      padding: 1.5rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      border-left: 4px solid var(--primary);
+    }
+
+    .post-content pre code {
+      background: none;
+      padding: 0;
+      color: var(--text-dark);
+    }
+
+    .post-content blockquote {
+      border-left: 4px solid var(--primary);
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+      color: var(--text-gray);
+      font-style: italic;
+    }
+
+    .post-content ul, .post-content ol {
+      margin: 1rem 0 1rem 2rem;
+    }
+
+    .post-content li {
+      margin-bottom: 0.5rem;
+      color: var(--text-gray);
+    }
+
+    /* Back link */
+    .back-link {
+      display: inline-block;
+      margin: 2rem 0;
+      padding: 0.6rem 1.2rem;
+      background: var(--bg-gray);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-link:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      transform: translateX(-4px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-gray);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      margin-top: 4rem;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">Jun Ma</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/thoughts.html">Thoughts</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <div class="container">
+    <article>
+      <h1>{{ page.title }}</h1>
+      <div class="post-meta">
+        <span>📅 {{ page.date | date: "%B %d, %Y" }}</span>
+        {% if page.categories %}
+        <span style="margin-left: 1rem;">🏷️ {{ page.categories | join: ', ' }}</span>
+        {% endif %}
+      </div>
+      <div class="post-content">
+        {{ content }}
+      </div>
+    </article>
+
+    <a href="/thoughts.html" class="back-link">← Back to All Thoughts</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Jun Ma. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
 
