@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Thoughts on Topology Optimization and Reduced-Order Modeling"
-date: 2025-01-15
-categories: [Optimization, Research]
+title: "Your Post Title Here"
+date: 2025-01-20
+categories: [Research, PDE, Optimization]
 ---
 
 This is an example post. You can write your academic thoughts here in Markdown format.
