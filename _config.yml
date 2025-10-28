@@ -13,6 +13,9 @@ url: "" # 你的网站URL，如 "https://username.github.io"
 markdown: kramdown
 permalink: /thoughts/:year/:month/:day/:title/
 
+# 允许显示未来日期的文章
+future: true
+
 # Collections
 collections:
   posts:
