@@ -8,6 +8,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- MathJax for LaTeX rendering -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  
   <style>
     /* Nature-inspired Academic Color Palette */
     :root {
@@ -53,7 +71,12 @@
     }
 
     h1 { font-size: 2.5rem; margin-top: 0; }
-    h2 { font-size: 1.8rem; color: var(--primary); }
+    h2 { 
+      font-size: 1.8rem; 
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
     h3 { font-size: 1.4rem; }
     h4 { font-size: 1.2rem; }
 
@@ -165,6 +188,7 @@
       border-radius: 4px;
       font-size: 0.9em;
       color: var(--accent);
+      font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
     }
 
     .post-content pre {
@@ -173,6 +197,7 @@
       border-radius: 8px;
       overflow-x: auto;
       border-left: 4px solid var(--primary);
+      margin: 1.5rem 0;
     }
 
     .post-content pre code {
@@ -196,6 +221,61 @@
     .post-content li {
       margin-bottom: 0.5rem;
       color: var(--text-gray);
+    }
+
+    .post-content strong {
+      color: var(--text-dark);
+      font-weight: 600;
+    }
+
+    /* Table Styling */
+    .post-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 8px var(--shadow);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .post-content table th,
+    .post-content table td {
+      padding: 1rem;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .post-content table th {
+      background: linear-gradient(to bottom, var(--primary), #0a6b4d);
+      color: white;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .post-content table td {
+      background: var(--bg-white);
+      line-height: 1.6;
+    }
+
+    .post-content table tr:nth-child(even) td {
+      background: var(--bg-gray);
+    }
+
+    .post-content table td br {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Math formula styling */
+    .MathJax {
+      font-size: 1.1em !important;
+    }
+
+    mjx-container {
+      overflow-x: auto;
+      overflow-y: visible;
+      margin: 0.5rem 0;
     }
 
     /* Back link */
@@ -237,6 +317,15 @@
       nav {
         display: none;
       }
+
+      .post-content table {
+        font-size: 0.85rem;
+      }
+
+      .post-content table th,
+      .post-content table td {
+        padding: 0.6rem;
+      }
     }
   </style>
 </head>
@@ -247,7 +336,7 @@
       <a href="/" class="logo">Jun Ma</a>
       <nav>
         <a href="/">Home</a>
-        <a href="/thoughts">Thoughts</a>
+        <a href="/thoughts.html">Thoughts</a>
       </nav>
     </div>
   </header>
@@ -267,7 +356,7 @@
       </div>
     </article>
 
-    <a href="/thoughts" class="back-link">← Back to All Thoughts</a>
+    <a href="/thoughts.html" class="back-link">← Back to All Thoughts</a>
   </div>
 
   <!-- Footer -->
