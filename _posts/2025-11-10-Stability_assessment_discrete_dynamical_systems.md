@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Thoughts on Stability assessment of discrete dynamical systems"
+date: 2025-11-12
+categories: [Optimization, Research]
+---
+
 # 离散动力系统稳定性判断
 
 ## 一、离散系统不动点的稳定性本质
