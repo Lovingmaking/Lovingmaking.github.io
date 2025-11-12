@@ -33,4 +33,17 @@ Thus $\delta_{n+1} \approx f'(x_0) \cdot \delta_n$. After iterations, we obtain 
 |----------------|-------------|---------------------|
 | Equilibrium Point | Continuous System (ODE $\dot{x}=f(x)$) | **Eigenvalues** of Jacobian matrix $J(x_0) = \frac{\partial f}{\partial x}\bigg\|_{x_0}$:<br>- All eigenvalues have real parts < 0 → stable;<br>- At least one eigenvalue has real part > 0 → unstable;<br>- Some eigenvalues have real part = 0 → non-hyperbolic (bifurcation critical point, e.g., Hopf bifurcation). |
 | Fixed Point (1-periodic orbit) | Discrete System (map $x_{n+1}=f(x_n)$) | Derivative of map at fixed point $f'(x_0)$ (i.e., 1×1 Jacobian):<br>- $\|f'(x_0)\| < 1$ → stable;<br>- $\|f'(x_0)\| > 1$ → unstable;<br>- $\|f'(x_0)\| = 1$ → non-hyperbolic (bifurcation critical point, e.g., flip bifurcation). |
-| n-periodic orbit (n≥2) | Discrete System | Derivative of n-times iterated map $f^n(x) = f(f(\dots f(x)\dots))$ (n-fold composition) at periodic point:
+| n-periodic orbit (n≥2) | Discrete System | Derivative of n-times iterated map $f^n(x) = f(f(\dots f(x)\dots))$ (n-fold composition) at periodic point:<br>- $\|(f^n)'(x_0)\| < 1$ → stable;<br>- $\|(f^n)'(x_0)\| > 1$ → unstable.<br>(Example: 2-periodic orbit requires computing $(f \circ f)'(x_0) = f'(x_1) \cdot f'(x_0)$, where $x_0,x_1$ are 2-periodic points) |
+| Periodic Orbit (Limit Cycle) | Continuous System | **Floquet multipliers** of the periodic orbit (describing perturbation evolution near the orbit):<br>- All Floquet multipliers have modulus < 1 (or real part < 0) → stable;<br>- At least one Floquet multiplier has modulus > 1 (or real part > 0) → unstable;<br>- Some multipliers have modulus = 1 → non-hyperbolic (bifurcation critical point). |
+| Chaotic Attractor | Continuous/Discrete System | Examine **Lyapunov exponents**:<br>- At least one positive Lyapunov exponent → chaotic (perturbations grow exponentially, sensitive dependence on initial conditions);<br>- All Lyapunov exponents ≤ 0 → non-chaotic (stable periodic or steady state). |
+
+## III. Summary: Don't Confuse "Absolute Value of Derivative" with "Real Part/Modulus of Eigenvalues"
+
+The criterion $|f'(x)| < 1$ is specific to fixed points in discrete systems, focusing on whether perturbations decay through iterations. In contrast, continuous systems focus on whether perturbations decay over time in differential equations, requiring "real parts of eigenvalues" for assessment (negative real part → decay, positive real part → growth).
+
+When encountering stability problems, ask yourself two questions:
+
+1. Is it a "continuous system" or a "discrete system"?
+2. Is the object of study an "equilibrium point," a "1-periodic orbit," or a "high-period orbit/chaotic attractor"?
+
+By answering these questions and referring to the corresponding criteria in the table, you won't make mistakes!
