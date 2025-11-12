@@ -1,51 +1,36 @@
 ---
 layout: post
-title: "Thoughts on Stability assessment of discrete dynamical systems"
+title: "Thoughts on Stability Assessment of Discrete Dynamical Systems"
 date: 2025-11-12
 categories: [Optimization, Research]
 ---
 
-# 离散动力系统稳定性判断
+# Stability Assessment of Discrete Dynamical Systems
 
-需要补充一个重要前提：**判断准则仅适用于「离散动力系统的不动点（1-周期轨）」**—— 比如迭代映射 $x_{n+1}=f(x_n,\lambda)$ 中的不动点（满足 $f(x_0,\lambda) = x_0$ 的点 $x_0$）。在这个前提下, $|f'(x_0)|<1$ 对应稳定, $|f'(x_0)|>1$ 对应不稳定，这个结论是完全正确的,也是离散系统分岔（比如 Flip 分岔）的核心判断依据之一。
+An important premise must be emphasized: **this criterion applies specifically to fixed points (1-periodic orbits) of discrete dynamical systems** — for instance, fixed points in iterative maps $x_{n+1}=f(x_n,\lambda)$ that satisfy $f(x_0,\lambda) = x_0$. Under this premise, $|f'(x_0)|<1$ corresponds to stability and $|f'(x_0)|>1$ to instability. This conclusion is absolutely correct and serves as one of the core criteria for bifurcations in discrete systems (such as flip bifurcations).
 
-但如果扩展到「连续动力系统」或「离散系统的高周期轨/混沌吸引子」，判断准则会不同。为了避免后续混淆，我们把这个准则的「适用范围」和「例外情况」梳理清楚，帮你建立完整的稳定性判断框架：
+However, when extended to continuous dynamical systems or high-period orbits/chaotic attractors in discrete systems, the stability criteria differ. To avoid confusion, let's clarify the "applicable scope" and "exceptional cases" of this criterion to establish a complete stability assessment framework:
 
-## 一、先明确：（离散系统不动点的稳定性本质）
+## I. The Essence: Why Does This Criterion Work? (Stability Nature of Fixed Points in Discrete Systems)
 
-离散系统的核心是「迭代演化」，不动点 $x_0$ 的稳定性，本质是「微小扰动能否随迭代衰减」：
+The core of discrete systems is "iterative evolution." The stability of a fixed point $x_0$ essentially concerns whether small perturbations decay through iterations:
 
-假设在不动点 $x_0$ 附近有一个小扰动 $\delta_n = x_n - x_0$，对迭代映射 $x_{n+1} = f(x_n)$ 做泰勒展开（忽略高阶小项）：
+Assume a small perturbation $\delta_n = x_n - x_0$ near the fixed point $x_0$. Applying Taylor expansion to the iterative map $x_{n+1} = f(x_n)$ (ignoring higher-order terms):
 
 $$
 x_{n+1} - x_0 = f(x_0 + \delta_n) - f(x_0) \approx f'(x_0) \cdot \delta_n
 $$
 
-即 $\delta_{n+1} \approx f'(x_0) \cdot \delta_n$。迭代下去会得到 $\delta_n \approx [f'(x_0)]^n \cdot \delta_0$：
+Thus $\delta_{n+1} \approx f'(x_0) \cdot \delta_n$. After iterations, we obtain $\delta_n \approx [f'(x_0)]^n \cdot \delta_0$:
 
-* 若 $|f'(x_0)| < 1$：$[f'(x_0)]^n$ 随 $n$ 增大趋近于 0，扰动衰减→不动点**稳定**；
-* 若 $|f'(x_0)| > 1$：$[f'(x_0)]^n$ 随 $n$ 增大趋于无穷，扰动放大→不动点**不稳定**；
-* 若 $|f'(x_0)| = 1$：线性项失效，需看非线性项（这就是分岔的临界点，比如 Flip 分岔中 $f'(x_0) = -1$）。
+* If $|f'(x_0)| < 1$: $[f'(x_0)]^n$ approaches 0 as $n$ increases, perturbations decay → fixed point is **stable**;
+* If $|f'(x_0)| > 1$: $[f'(x_0)]^n$ approaches infinity as $n$ increases, perturbations amplify → fixed point is **unstable**;
+* If $|f'(x_0)| = 1$: linear terms fail, nonlinear terms must be examined (this is the critical point of bifurcation, e.g., $f'(x_0) = -1$ in flip bifurcations).
 
+## II. Key Supplement: Different Stability Criteria for Different Systems/Objects
 
-
-## 二、关键补充：不同系统/对象的稳定性判断准则不同
-
-| 研究对象 | 所属系统 | 稳定性判断核心准则 |
-|---------|---------|------------------|
-| 平衡点（定态） | 连续系统（微分方程 $\dot{x}=f(x)$） | 雅可比矩阵 $J(x_0) = \frac{\partial f}{\partial x}\bigg\|_{x_0}$ 的**特征值**：<br>- 所有特征值实部 < 0 → 稳定；<br>- 至少一个特征值实部 > 0 → 不稳定；<br>- 部分特征值实部 = 0 → 非双曲（分岔临界点，如 Hopf 分岔）。 |
-| 不动点（1-周期轨） | 离散系统（迭代映射 $x_{n+1}=f(x_n)$） | 映射在不动点的导数 $f'(x_0)$（即 1×1 雅可比矩阵）：<br>- $\|f'(x_0)\| < 1$ → 稳定；<br>- $\|f'(x_0)\| > 1$ → 不稳定；<br>- $\|f'(x_0)\| = 1$ → 非双曲（分岔临界点，如 Flip 分岔）。 |
-| n-周期轨（n≥2） | 离散系统 | 迭代 n 次后的映射 $f^n(x) = f(f(\dots f(x)\dots))$（n 次复合）在周期点的导数：<br>- $\|(f^n)'(x_0)\| < 1$ → 稳定；<br>- $\|(f^n)'(x_0)\| > 1$ → 不稳定。<br>（例：2-周期轨需算 $(f \circ f)'(x_0) = f'(x_1) \cdot f'(x_0)$，$x_0,x_1$ 为 2-周期点） |
-| 周期轨（极限环） | 连续系统 | 周期轨的**Floquet 乘子**（描述周期轨附近扰动的演化）：<br>- 所有 Floquet 乘子模 < 1（或实部 < 0）→ 稳定；<br>- 至少一个 Floquet 乘子模 > 1（或实部 > 0）→ 不稳定；<br>- 部分乘子模 = 1 → 非双曲（分岔临界点，如连续系统的 Flip 分岔）。 |
-| 混沌吸引子 | 连续/离散系统 | 需看「李雅普诺夫指数」：<br>- 至少一个正的李雅普诺夫指数 → 混沌（扰动随时间指数增长，系统对初始条件敏感）；<br>- 所有李雅普诺夫指数 ≤ 0 → 非混沌（稳定周期或定态）。 |
-
-## 三、一句话总结：别记混「导数的绝对值」和「特征值的实部/模」
-
-$|f'(x)| < 1$ 是「离散系统不动点」的专属准则，核心是「迭代中扰动是否衰减」；而连续系统的核心是「微分方程中扰动是否随时间衰减」，需要用「特征值实部」判断（实部负→衰减，实部正→增长）。
-
-后续遇到稳定性问题时，先问自己两个问题：
-
-1. 是「连续系统」还是「离散系统」？
-2. 研究的是「平衡点」「1-周期轨」还是「高周期轨/混沌吸引子」？
-
-根据这两个问题，对应表格中的准则，就不会出错了～
+| Object of Study | System Type | Stability Criterion |
+|----------------|-------------|---------------------|
+| Equilibrium Point | Continuous System (ODE $\dot{x}=f(x)$) | **Eigenvalues** of Jacobian matrix $J(x_0) = \frac{\partial f}{\partial x}\bigg\|_{x_0}$:<br>- All eigenvalues have real parts < 0 → stable;<br>- At least one eigenvalue has real part > 0 → unstable;<br>- Some eigenvalues have real part = 0 → non-hyperbolic (bifurcation critical point, e.g., Hopf bifurcation). |
+| Fixed Point (1-periodic orbit) | Discrete System (map $x_{n+1}=f(x_n)$) | Derivative of map at fixed point $f'(x_0)$ (i.e., 1×1 Jacobian):<br>- $\|f'(x_0)\| < 1$ → stable;<br>- $\|f'(x_0)\| > 1$ → unstable;<br>- $\|f'(x_0)\| = 1$ → non-hyperbolic (bifurcation critical point, e.g., flip bifurcation). |
+| n-periodic orbit (n≥2) | Discrete System | Derivative of n-times iterated map $f^n(x) = f(f(\dots f(x)\dots))$ (n-fold composition) at periodic point:
