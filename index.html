@@ -526,16 +526,23 @@
     </div>
   </header>
 
-<!-- Hero Section - 头像在左边，更大 -->
+<!-- Hero Section -->
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <!-- 头像放在左边 -->
+      <!-- 头像容器（左边） -->
       <div class="hero-left">
-        <img src="/assets/avatar.jpg" alt="Jun Ma" class="avatar" />
+        <div class="avatar-container">
+          <!-- 头像 -->
+          <img src="/assets/avatar.jpg" alt="Jun Ma" class="avatar" id="avatarImg" />
+          <!-- 水波纹圆环（3层） -->
+          <div class="ripple ripple-1"></div>
+          <div class="ripple ripple-2"></div>
+          <div class="ripple ripple-3"></div>
+        </div>
       </div>
       
-      <!-- 文字内容放在右边 -->
+      <!-- 文字内容（右边）- 保持不变 -->
       <div class="hero-right">
         <h1>Jun Ma</h1>
         <p class="subtitle">PhD Candidate in Computational Mathematics<br>Université de Technologie de Compiègne (UTC), LMAC Laboratory</p>
@@ -555,9 +562,11 @@
     </div>
   </div>
 </section>
-
+  
 <style>
-/* Hero Section 样式 */
+/* ====================================
+   Hero Section 基础样式
+   ==================================== */
 .hero {
   padding: 4rem 0 3rem;
   background: linear-gradient(to bottom, var(--bg-white) 0%, var(--bg-gray) 100%);
@@ -566,11 +575,10 @@
 
 .hero-content {
   display: flex;
-  gap: 3rem;
-  align-items: center;  /* 垂直居中对齐 */
+  gap: 4rem;
+  align-items: center;
 }
 
-/* 头像容器 - 左边 */
 .hero-left {
   flex-shrink: 0;
   display: flex;
@@ -578,36 +586,128 @@
   justify-content: center;
 }
 
-/* 头像样式 - 更大 */
-.avatar {
-  width: 240px;          /* 从 180px 增加到 240px */
-  height: 240px;         /* 从 180px 增加到 240px */
-  border-radius: 50%;
-  border: 5px solid var(--primary);  /* 从 4px 增加到 5px */
-  object-fit: cover;
-  box-shadow: 0 8px 24px var(--shadow);  /* 增强阴影效果 */
-  transition: all 0.3s ease;
-}
-
-.avatar:hover {
-  transform: scale(1.05);  /* 鼠标悬停时放大效果 */
-  box-shadow: 0 12px 32px rgba(12, 124, 89, 0.3);
-}
-
-/* 文字内容 - 右边 */
 .hero-right {
   flex: 1;
 }
 
-/* 响应式设计 */
+/* ====================================
+   头像容器
+   ==================================== */
+.avatar-container {
+  position: relative;
+  width: 300px;        /* 🔧 想要更大？改成 320px 或 360px */
+  height: 300px;
+  display: inline-block;
+}
+
+/* 头像本身 */
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 6px solid var(--primary);
+  object-fit: cover;
+  box-shadow: 0 10px 30px var(--shadow);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: block;
+}
+
+.avatar:hover {
+  transform: scale(1.08);
+  box-shadow: 0 15px 40px rgba(12, 124, 89, 0.4);
+  border-color: var(--secondary);
+}
+
+/* ====================================
+   水波纹特效
+   ==================================== */
+.ripple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  pointer-events: none;
+}
+
+/* 鼠标悬停时启动水波纹 */
+.avatar-container:hover .ripple {
+  animation: ripple-animation 1.5s ease-out infinite;
+}
+
+/* 水波纹动画 */
+@keyframes ripple-animation {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* 三层水波纹的延迟和颜色 */
+.ripple-1 {
+  animation-delay: 0s;
+}
+
+.ripple-2 {
+  animation-delay: 0.3s;
+  border-color: var(--secondary);
+}
+
+.ripple-3 {
+  animation-delay: 0.6s;
+  border-color: var(--accent);
+}
+
+/* 点击产生的水波纹 */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(12, 124, 89, 0.4) 0%, rgba(12, 124, 89, 0) 70%);
+  pointer-events: none;
+  animation: ripple-click 0.8s ease-out forwards;
+}
+
+@keyframes ripple-click {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ====================================
+   响应式设计
+   ==================================== */
 @media (max-width: 768px) {
   .hero-content {
-    flex-direction: column;  /* 移动端改为上下布局 */
+    flex-direction: column;
     gap: 2rem;
   }
 
-  .avatar {
-    width: 180px;  /* 移动端稍小一些 */
+  .avatar-container {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .avatar-container {
+    width: 180px;
     height: 180px;
   }
 }
@@ -920,5 +1020,43 @@
       });
     });
   </script>
+
+<script>
+/* 点击头像产生水波纹效果 */
+document.addEventListener('DOMContentLoaded', function() {
+  const avatar = document.getElementById('avatarImg');
+  const container = document.querySelector('.avatar-container');
+  
+  if (avatar && container) {
+    avatar.addEventListener('click', function(e) {
+      // 创建水波纹元素
+      const ripple = document.createElement('div');
+      ripple.className = 'ripple-effect';
+      
+      // 计算点击位置
+      const rect = avatar.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      
+      // 设置水波纹样式
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      
+      // 添加到容器
+      container.appendChild(ripple);
+      
+      // 动画结束后移除
+      setTimeout(() => {
+        ripple.remove();
+      }, 800);
+    });
+  }
+});
+</script>
+  
 </body>
 </html>
+
+
