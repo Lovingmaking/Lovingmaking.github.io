@@ -526,32 +526,92 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-left">
-          <h1>Jun Ma</h1>
-          <p class="subtitle">PhD Candidate in Computational Mathematics<br>Université de Technologie de Compiègne (UTC), LMAC Laboratory</p>
-          <p>Research focus: Topology Optimization • PDE Analysis • AI for Thermal Energy Systems</p>
-          
-          <div class="award-highlight">
-            <strong>🏆 Recent Achievement:</strong> Best Paper Award at ACCM-2023 (6th Australasian Congress on Computational Mechanics)
-          </div>
-
-          <div class="social-links">
-            <a class="btn" href="/CV.pdf" target="_blank">📄 CV</a>
-            <a class="btn" href="https://scholar.google.com/citations?user=Gzmt1REAAAAJ" target="_blank">🎓 Scholar</a>
-            <a class="btn btn-secondary" href="https://github.com/" target="_blank">💻 GitHub</a>
-            <a class="btn btn-secondary" href="https://orcid.org/0009-0003-1988-0730" target="_blank">🔗 ORCID</a>
-          </div>
+<!-- Hero Section - 头像在左边，更大 -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <!-- 头像放在左边 -->
+      <div class="hero-left">
+        <img src="/assets/avatar.jpg" alt="Jun Ma" class="avatar" />
+      </div>
+      
+      <!-- 文字内容放在右边 -->
+      <div class="hero-right">
+        <h1>Jun Ma</h1>
+        <p class="subtitle">PhD Candidate in Computational Mathematics<br>Université de Technologie de Compiègne (UTC), LMAC Laboratory</p>
+        <p>Research focus: Topology Optimization • PDE Analysis • AI for Thermal Energy Systems</p>
+        
+        <div class="award-highlight">
+          <strong>🏆 Recent Achievement:</strong> Best Paper Award at ACCM-2023 (6th Australasian Congress on Computational Mechanics)
         </div>
-        <div class="hero-right">
-          <img src="/assets/avatar.jpg" alt="Jun Ma" class="avatar" />
+
+        <div class="social-links">
+          <a class="btn" href="/CV.pdf" target="_blank">📄 CV</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=Gzmt1REAAAAJ" target="_blank">🎓 Scholar</a>
+          <a class="btn btn-secondary" href="https://github.com/" target="_blank">💻 GitHub</a>
+          <a class="btn btn-secondary" href="https://orcid.org/0009-0003-1988-0730" target="_blank">🔗 ORCID</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<style>
+/* Hero Section 样式 */
+.hero {
+  padding: 4rem 0 3rem;
+  background: linear-gradient(to bottom, var(--bg-white) 0%, var(--bg-gray) 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-content {
+  display: flex;
+  gap: 3rem;
+  align-items: center;  /* 垂直居中对齐 */
+}
+
+/* 头像容器 - 左边 */
+.hero-left {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 头像样式 - 更大 */
+.avatar {
+  width: 240px;          /* 从 180px 增加到 240px */
+  height: 240px;         /* 从 180px 增加到 240px */
+  border-radius: 50%;
+  border: 5px solid var(--primary);  /* 从 4px 增加到 5px */
+  object-fit: cover;
+  box-shadow: 0 8px 24px var(--shadow);  /* 增强阴影效果 */
+  transition: all 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);  /* 鼠标悬停时放大效果 */
+  box-shadow: 0 12px 32px rgba(12, 124, 89, 0.3);
+}
+
+/* 文字内容 - 右边 */
+.hero-right {
+  flex: 1;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;  /* 移动端改为上下布局 */
+    gap: 2rem;
+  }
+
+  .avatar {
+    width: 180px;  /* 移动端稍小一些 */
+    height: 180px;
+  }
+}
+</style>
 
   <!-- Main Content -->
   <div class="container">
