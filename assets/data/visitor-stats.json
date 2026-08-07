@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-06T12:56:40Z",
-  "total_visitors": 62,
+  "updated_at": "2026-08-07T12:31:24Z",
+  "total_visitors": 63,
   "countries": [
     {
       "code": "US",
@@ -33,7 +33,7 @@
     {
       "code": "JP",
       "name": "Japan",
-      "visitors": 1,
+      "visitors": 2,
       "iso3": "JPN",
       "map_id": "392"
     }
