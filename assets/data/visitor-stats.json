@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-07T12:31:24Z",
-  "total_visitors": 63,
+  "updated_at": "2026-08-07T18:32:18Z",
+  "total_visitors": 64,
   "countries": [
     {
       "code": "US",
@@ -36,6 +36,13 @@
       "visitors": 2,
       "iso3": "JPN",
       "map_id": "392"
+    },
+    {
+      "code": "AR",
+      "name": "Argentina",
+      "visitors": 1,
+      "iso3": "ARG",
+      "map_id": "032"
     }
   ]
 }
