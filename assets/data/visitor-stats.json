@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-23T12:27:28Z",
-  "total_visitors": 73,
+  "updated_at": "2026-08-23T18:26:31Z",
+  "total_visitors": 74,
   "countries": [
     {
       "code": "US",
@@ -26,7 +26,7 @@
     {
       "code": "CN",
       "name": "China (including Taiwan region)",
-      "visitors": 6,
+      "visitors": 7,
       "iso3": "CHN",
       "map_id": "156"
     },
