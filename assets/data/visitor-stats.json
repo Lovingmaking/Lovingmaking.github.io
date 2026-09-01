@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-29T18:26:41Z",
-  "total_visitors": 79,
+  "updated_at": "2026-09-01T12:36:43Z",
+  "total_visitors": 81,
   "countries": [
     {
       "code": "US",
@@ -19,7 +19,7 @@
     {
       "code": "SG",
       "name": "Singapore",
-      "visitors": 9,
+      "visitors": 10,
       "iso3": "SGP",
       "map_id": "702"
     },
@@ -38,18 +38,18 @@
       "map_id": "344"
     },
     {
+      "code": "AR",
+      "name": "Argentina",
+      "visitors": 2,
+      "iso3": "ARG",
+      "map_id": "032"
+    },
+    {
       "code": "JP",
       "name": "Japan",
       "visitors": 2,
       "iso3": "JPN",
       "map_id": "392"
-    },
-    {
-      "code": "AR",
-      "name": "Argentina",
-      "visitors": 1,
-      "iso3": "ARG",
-      "map_id": "032"
     }
   ]
 }
